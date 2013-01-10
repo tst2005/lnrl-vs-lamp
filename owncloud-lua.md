@@ -4,7 +4,8 @@ lnrl-vs-lamp
 Linux-Nginx-Redis-Lua versus Linux-Apache-Mysql-Php
 
 
-
+Draft
+=====
 
 
 source: http://owncloud.org/support/install/
@@ -22,39 +23,32 @@ You don’t need any WebDAV support of your webserver (i.e. apache’s mod_webda
 Essayons d'avoir l'equivalent avec du lua ...
 
 
-| Original | Targeted | URL |
-|:-----------|:------------|:------------|
-| apache2    | nginx |     This     |
-| column     |      column |    column    |
-| will       |        will |     will     |
-| be         |          be |      be      |
-| left       |       right |    center    |
-| aligned    |     aligned |   aligned    |
-
-                                               
-        (webdav)                                        (nginx ./configure --with-http_dav_module)
-        php5                                            lua, luajit
-        php5-json                                       cjson, ...
-        php-xml                                         ?               http://lua-users.org/wiki/LuaXml
-
-        php-mbstring                                    ? multibyte ... Unicode
-        [ http://php.net/manual/fr/book.mbstring.php ]  [ http://ittner.github.com/lua-iconv/ ]
-        php5-zip                                        luazip          http://www.keplerproject.org/luazip/
-        php5-gd                                         lua-gd
-
-And as optional dependencies:
-        php5-sqlite (>= 3)                              ?
-        curl, libcurl3, libcurl3-dev                    = idem
-        php5-curl                                       lua-curl                http://msva.github.com/lua-curl/ (fork of LuaCURL)
-        php-pdo
+| Original   | Targeted | URL | comment |
+|:-----------|:---------|:----|:--------|
+| apache2    | nginx    | ... | [url.openresty][] |
+| (webdav)   | (webdav) | (nginx ./configure --with-http_dav_module) | |
+| php5       | Lua      | LuaJIT | [url.luajit][] |
+| php5-json  | cjson    | ... | |
+| php-xml    | ?        | [url.luaxml][] | |
+| php-mbstring | ?      | multibyte ... Unicode [ http://php.net/manual/fr/book.mbstring.php ]  [ http://ittner.github.com/lua-iconv/ ] | |
+| php5-zip   | luazip   | [url.luazip][] | |
+| php5-gd    | lua-gd   | ... | |
+| And as optional dependencies: |
+| php5-sqlite (>= 3) | ? | ... | |
+| curl, libcurl3, libcurl3-dev | = idem | ... | |
+| php5-curl | lua-curl  | http://msva.github.com/lua-curl/ (fork of LuaCURL) | fail to compile |
+| php-pdo   | ?         | ... | |
 
 
 
-
-lua-iconv : http://ittner.github.com/lua-iconv/  http://www.gnupg.org/download/iconv.en.html http://gnuwin32.sourceforge.net/packages/libiconv.htm
-lua-gd    : http://ittner.github.com/lua-gd/
+http://php.net/manual/fr/book.mbstring.php
 
 https://code.google.com/p/luaforwindows/
 
-http://www.keplerproject.org/luazip/
+[url.luazip]: http://www.keplerproject.org/luazip/
+[url.openresty]: http://openresty.org
+[url.luajit]: http://luajit.org
+[url.luaxml]: http://lua-users.org/wiki/LuaXml
+[url.lua-iconv]: http://ittner.github.com/lua-iconv/  http://www.gnupg.org/download/iconv.en.html http://gnuwin32.sourceforge.net/packages/libiconv.htm
+[url.lua-gd]: http://ittner.github.com/lua-gd/
 
